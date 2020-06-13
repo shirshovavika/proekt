@@ -1,0 +1,44 @@
+﻿@model programmirovanje.Models.Book
+
+<div class="well">
+    @*@if (Model.ImageData != null)
+        {
+            <div class="pull-left" style="margin-right: 10px">
+                <img class="img-thumbnail" width="75" height="75"
+                     src="@Url.Action("GetImage", "Game",
+                    new { Model.GameId })" />
+            </div>
+        }*@
+
+    <h3>
+        <strong>@Html.ActionLink(@Model.Name, "Details", "Books", new { id = Model.BookId }, htmlAttributes: null)</strong>
+        @if (Model.Price != 0)
+        {
+        <span class="pull-right label label-primary">@Model.Price.ToString("# руб")</span>
+        }
+        else
+        {
+    <div class="pull-right">
+        @using (Html.BeginForm("AddToLibrary", "Library"))
+        {
+            @Html.HiddenFor(b => b.BookId)
+            <input type="submit" class="btn btn-success" value="Добавить в Библиотеку" />
+        }
+    </div>
+        }
+    </h3>
+    <div class="pull-right">
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        @if (Model.Price != 0)
+        {
+            using (Html.BeginForm("AddToCart", "Cart"))
+            {
+                @Html.HiddenFor(b => b.BookId)
+                <input type="submit" class="btn btn-success" value="Добавить в корзину" />
+            }
+        }
+
+    </div>
+    <span class="lead">@Model.Description</span>
+</div>
+

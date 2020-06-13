@@ -1,0 +1,44 @@
+﻿@model programmirovanje.Models.CartIndexViewModel
+@{
+    ViewBag.Title = "Ваша корзина";
+}
+<style>
+    #cartTable td{vertical-align: middle;}
+</style>
+<h2>Ваша корзина</h2>
+<table id="cartTable" class="table">
+    <thead>
+        <tr>
+            <th>Книга</th>
+            <th class="text-right">Цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-left">@line.Book.Name</td>
+                <td class="text-right">@line.Book.Price.ToString("# rub")</td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        @Html.Hidden("BookId", line.Book.BookId)
+                        @Html.HiddenFor(x=>x.ReturnUrl)
+                        <input class="btn btn-sm btn-warning" type="submit" value="Удалить"/>
+                    }
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">
+                @Model.Cart.ComputeTotalValue().ToString("# rub")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Вернуться к списку товаров</a>
+</div>

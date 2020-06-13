@@ -1,0 +1,33 @@
+﻿@using programmirovanje.Models
+@model BooksListViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Товары";
+}
+<div class="btn-group btn-right">
+    <!-- Кнопка -->
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Категория
+    </button>
+    <!-- Меню -->
+    <div class="dropdown-menu dropdown-menu-right">
+        <div id="categories" class="col-xs-3">
+            @Html.Action("Menu", "Nav")
+        </div>
+    </div>
+    @Html.RouteLink("Очистить", new
+    {
+       controller = "Books",
+       action = "List"
+    }, new
+    {
+        @class = "btn"
+    })
+</div>
+
+@foreach (var p in @Model.Books)
+{
+    @Html.Partial("BookSummary", p)
+}

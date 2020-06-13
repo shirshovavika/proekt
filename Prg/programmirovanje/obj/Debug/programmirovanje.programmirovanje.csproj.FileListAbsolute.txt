@@ -1,0 +1,8 @@
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.programmirovanje.csprojAssemblyReference.cache
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.Migrations.InitialCreate.resources
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.Migrations.DataMigration.resources
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.Migrations.BookMigrate.resources
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.Migrations.AnotherM.resources
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.programmirovanje.csproj.GenerateResource.cache
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.dll
+C:\Users\Виктория\source\repos\programmirovanje\programmirovanje\obj\Debug\programmirovanje.pdb

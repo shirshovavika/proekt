@@ -1,0 +1,39 @@
+﻿@model programmirovanje.Models.LibraryIndexViewModel
+@{
+    ViewBag.Title = "Ваша Библиотека";
+}
+<style>
+    #cartTable td {vertical-align: middle;}
+</style>
+<h2>Ваша Библиотека</h2>
+<table id="cartTable" class="table">
+    <thead>
+        <tr>
+            <th>Книга</th>
+            <th>Автор</th>
+            <th>Жанр</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Library.Lines)
+        {
+        <tr>
+            <td class="text-left">@line.Book.Name</td>
+            <td class="text-right">@line.Book.Author</td>
+            <td class="text-right">@line.Book.Category</td>
+
+            <td>
+                @using (Html.BeginForm("RemoveFromLibrary", "Library"))
+                {
+                    @Html.Hidden("BookId", line.Book.BookId)
+                    <input class="btn btn-sm btn-warning" type="submit" value="Удалить" />
+                }
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Url.Action("List","Books")">R списку товаров</a>
+</div>
